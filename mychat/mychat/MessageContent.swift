@@ -15,15 +15,18 @@ struct Message : Decodable {
     let text : String
     let photoUrl : String
     let sentAt : Date
+    
+    func is_from_current_user () -> Bool{
+        return true
+    }
 }
 
 struct MessageContent: View {
     
     var message : Message
-    var is_current_user : Bool = false
     
     var body: some View {
-        if(is_current_user){
+        if(message.is_from_current_user()){
             is_current_user_func(message : message)
         }else{
             is_not_current_user_func(message: message)
@@ -46,7 +49,7 @@ func is_current_user_func(message: Message) -> some View{
                 .padding()
         }
         // instead of 260, use formula
-        .frame(maxWidth: 260, alignment: .leading)
+        .frame(maxWidth: 260, alignment: .topLeading)
         .background(.gray)
         .cornerRadius(10)
         
@@ -54,9 +57,9 @@ func is_current_user_func(message: Message) -> some View{
         Image(systemName: "person")
             .frame(maxHeight: 30, alignment: .top)
             .padding(.bottom, 15)
-            .padding(.trailing, 4)
+            .padding(.leading, 4)
     }
-    .frame(maxWidth: 360, alignment: .leading)
+    .frame(maxWidth: 360, alignment: .trailing)
 }
 
 func is_not_current_user_func(message: Message) -> some View{
