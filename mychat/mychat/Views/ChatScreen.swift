@@ -21,6 +21,10 @@ class chatScreenModel: ObservableObject{
         Message(user_uid: "String", text: "String", photoUrl: "String", sentAt: Date()),
     ]
     
+    func send_button(text: String){
+        print(text)
+    }
+    
 }
 
 struct ChatScreen: View {
@@ -30,7 +34,7 @@ struct ChatScreen: View {
     //
     var body: some View {
         VStack{
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 8){
                     ForEach(chat_screen_model.test_data) { message in
                         MessageContent(message: message)
@@ -41,7 +45,8 @@ struct ChatScreen: View {
                 TextField("Howdy", text: $text, axis: .vertical)
                     .padding()
                 Button{
-                    print("send")
+                    chat_screen_model.send_button(text: text)
+                    text = ""
                 } label: {
                     Text("Send")
                         .foregroundColor(.white)
