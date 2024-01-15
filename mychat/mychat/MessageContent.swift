@@ -7,20 +7,6 @@
 
 import SwiftUI
 
-// decodable because will be private later
-// Date == "yyyy-MM-dd HH:mm:ss"
-
-struct Message : Decodable {
-    let user_uid : String
-    let text : String
-    let photoUrl : String
-    let sentAt : Date
-    
-    func is_from_current_user () -> Bool{
-        return true
-    }
-}
-
 struct MessageContent: View {
     
     var message : Message
