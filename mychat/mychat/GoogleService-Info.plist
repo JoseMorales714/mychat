@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCvXFqsOwa7I8m9gnV-NgqXbMhWe8cIuIg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>705791925485</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>j-morales.mychat</string>
+	<key>PROJECT_ID</key>
+	<string>vale-80239</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vale-80239.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:705791925485:ios:4976b242bc56dd028f00e4</string>
+</dict>
+</plist>
