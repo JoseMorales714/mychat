@@ -14,7 +14,7 @@ struct Message : Decodable, Identifiable {
     let id = UUID()
     let user_uid : String
     let text : String
-    let photoUrl : String
+    let photoUrl: String
     let sentAt : Date
     
     func is_from_current_user () -> Bool{

@@ -19,10 +19,24 @@ class chatScreenModel: ObservableObject{
         Message(user_uid: "String", text: "String", photoUrl: "String", sentAt: Date()),
         Message(user_uid: "String", text: "String", photoUrl: "String", sentAt: Date()),
         Message(user_uid: "String", text: "String", photoUrl: "String", sentAt: Date()),
+        Message(user_uid: "String", text: "String", photoUrl: "String", sentAt: Date()),
+        Message(user_uid: "String", text: "String", photoUrl: "String", sentAt: Date()),
+        Message(user_uid: "String", text: "String", photoUrl: "String", sentAt: Date()),
     ]
     
     func send_button(text: String){
-        print(text)
+        
+        guard let userUid = AuthManager.shared.getCurrentUser()?.uid else{
+            
+            // 55:5500
+            
+            
+            return
+        }
+        
+        let msg = Message(user_uid: <#T##String#>, text: <#T##String#>, photoUrl: <#T##String#>, sentAt: <#T##Date#>)
+        
+        DatabaseManager.shared.store_msg_database(message: <#T##Message#>, completion: <#T##(Bool) -> Void#>)
     }
     
 }
@@ -45,8 +59,11 @@ struct ChatScreen: View {
                 TextField("Howdy", text: $text, axis: .vertical)
                     .padding()
                 Button{
-                    chat_screen_model.send_button(text: text)
-                    text = ""
+                    if(text.count > 2){
+                        chat_screen_model.send_button(text: text)
+                        text = ""
+                    }
+                    
                 } label: {
                     Text("Send")
                         .foregroundColor(.white)

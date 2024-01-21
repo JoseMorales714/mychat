@@ -36,7 +36,7 @@ func is_current_user_func(message: Message) -> some View{
         }
         // instead of 260, use formula
         .frame(maxWidth: 260, alignment: .topLeading)
-        .background(.gray)
+        .background(Color(uiColor: .systemGreen))
         .cornerRadius(10)
         
         // this gives system icons for UI

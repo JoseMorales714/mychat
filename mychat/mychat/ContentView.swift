@@ -8,17 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var is_not_signed_in: Bool = true
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            ZStack{
+                ChatScreen()
+            }
+            .navigationTitle("Convo")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button{
+                        print("user returned from chat")
+                    } label: {
+                        Text("Return")
+                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    }
+                }
+            }
         }
-        .padding()
+        .fullScreenCover(isPresented: $is_not_signed_in){
+            SignInScreen()
+        }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews : PreviewProvider {
+    // static because it is shared among the struct
+    static var previews: some View {
+        ContentView()
+    }
 }
