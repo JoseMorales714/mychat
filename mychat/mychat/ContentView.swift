@@ -30,7 +30,7 @@ struct ContentView: View {
             }
         }
         .fullScreenCover(isPresented: $is_not_signed_in){
-            SignInScreen()
+            SignInScreen(showSignIn: $is_not_signed_in)
         }
     }
 }

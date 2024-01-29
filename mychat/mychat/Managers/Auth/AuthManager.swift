@@ -60,8 +60,8 @@ final class AuthManager: NSObject {
         request.requestedScopes = [.fullName, .email]
         request.nonce = sha256(nonce)
         
-        guard let topVC = UIApplication.getTopViewController() else {
-            completion.failure(.unableToGrabTopVC)
+        guard let topVC = UIApplication.getTopViewController() else{
+            completion(.failure(.unableToGrabTopVC))
             return
         }
         
@@ -154,8 +154,24 @@ extension AuthManager: ASAuthorizationControllerDelegate, ASAuthorizationControl
     
 }
 
+extension UIViewController: ASAuthorizationControllerPresentationContextProviding {
+    public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+}
+
+
 extension UIApplication{
-    class func getTopViewController (base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController{
+    class func getTopViewController (base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         
+        if let nav = base as? UINavigationController{
+            return getTopViewController(base: nav.visibleViewController)
+        }else if let tab = base as? UITabBarController, let selected = tab.selectedViewController{
+            return getTopViewController(base: selected)
+        }else if let presented = base?.presentedViewController{
+            return getTopViewController(base: presented)
+        }
+        
+        return base
     }
 }

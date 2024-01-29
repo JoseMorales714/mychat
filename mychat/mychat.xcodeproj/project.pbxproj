@@ -38,6 +38,7 @@
 		3C09E3D12B577519007F0E44 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 3C09E3D02B577519007F0E44 /* FirebaseStorageCombine-Community */; };
 		3C09E3D42B577713007F0E44 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09E3D32B577713007F0E44 /* DatabaseManager.swift */; };
 		3C09E3D62B577723007F0E44 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09E3D52B577723007F0E44 /* AuthManager.swift */; };
+		3C8BC9752B672F8F007458B2 /* SignInApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BC9742B672F8F007458B2 /* SignInApple.swift */; };
 		3CCD1EF42B4FAC1200455054 /* mychatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD1EF32B4FAC1200455054 /* mychatApp.swift */; };
 		3CCD1EF62B4FAC1200455054 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD1EF52B4FAC1200455054 /* ContentView.swift */; };
 		3CCD1EF82B4FAC1400455054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CCD1EF72B4FAC1400455054 /* Assets.xcassets */; };
@@ -52,6 +53,8 @@
 		3C09E3992B5773BC007F0E44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C09E3D32B577713007F0E44 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		3C09E3D52B577723007F0E44 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		3C8BC9722B5F5C08007458B2 /* mychat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mychat.entitlements; sourceTree = "<group>"; };
+		3C8BC9742B672F8F007458B2 /* SignInApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInApple.swift; sourceTree = "<group>"; };
 		3CCD1EF02B4FAC1200455054 /* mychat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mychat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CCD1EF32B4FAC1200455054 /* mychatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mychatApp.swift; sourceTree = "<group>"; };
 		3CCD1EF52B4FAC1200455054 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,10 +106,19 @@
 		3C09E3D22B5776F9007F0E44 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				3C8BC9732B672F73007458B2 /* Auth */,
 				3C09E3D32B577713007F0E44 /* DatabaseManager.swift */,
-				3C09E3D52B577723007F0E44 /* AuthManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		3C8BC9732B672F73007458B2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3C09E3D52B577723007F0E44 /* AuthManager.swift */,
+				3C8BC9742B672F8F007458B2 /* SignInApple.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		3CCD1EE72B4FAC1200455054 = {
@@ -128,11 +140,11 @@
 		3CCD1EF22B4FAC1200455054 /* mychat */ = {
 			isa = PBXGroup;
 			children = (
+				3C8BC9722B5F5C08007458B2 /* mychat.entitlements */,
 				3C09E3D22B5776F9007F0E44 /* Managers */,
 				3C09E3992B5773BC007F0E44 /* GoogleService-Info.plist */,
 				3CCD1F0A2B5352D600455054 /* Views */,
 				3CCD1F092B53527A00455054 /* Models */,
-				3CCD1EF32B4FAC1200455054 /* mychatApp.swift */,
 				3CCD1EF52B4FAC1200455054 /* ContentView.swift */,
 				3CCD1EF72B4FAC1400455054 /* Assets.xcassets */,
 				3CCD1EF92B4FAC1400455054 /* Preview Content */,
@@ -160,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				3CCD1F012B4FAC5900455054 /* ChatScreen.swift */,
+				3CCD1EF32B4FAC1200455054 /* mychatApp.swift */,
 				3CCD1F032B4FAC6F00455054 /* MessageContent.swift */,
 				3C09E3972B576EF0007F0E44 /* SignInScreen.swift */,
 			);
@@ -273,6 +286,7 @@
 				3C09E3D62B577723007F0E44 /* AuthManager.swift in Sources */,
 				3CCD1F022B4FAC5900455054 /* ChatScreen.swift in Sources */,
 				3CCD1F0D2B53537F00455054 /* Message.swift in Sources */,
+				3C8BC9752B672F8F007458B2 /* SignInApple.swift in Sources */,
 				3CCD1EF42B4FAC1200455054 /* mychatApp.swift in Sources */,
 				3CCD1F042B4FAC6F00455054 /* MessageContent.swift in Sources */,
 				3C09E3D42B577713007F0E44 /* DatabaseManager.swift in Sources */,
@@ -407,6 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = mychat/mychat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mychat/Preview Content\"";
@@ -423,7 +438,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "j-morales.mychat";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.j-morales.mychat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -436,6 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = mychat/mychat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mychat/Preview Content\"";
@@ -452,7 +468,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "j-morales.mychat";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.j-morales.mychat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

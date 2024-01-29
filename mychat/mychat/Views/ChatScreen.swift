@@ -26,17 +26,10 @@ class chatScreenModel: ObservableObject{
     
     func send_button(text: String){
         
-        guard let userUid = AuthManager.shared.getCurrentUser()?.uid else{
-            
-            // 55:5500
-            
-            
-            return
-        }
         
-        let msg = Message(user_uid: <#T##String#>, text: <#T##String#>, photoUrl: <#T##String#>, sentAt: <#T##Date#>)
+        //let msg = Message(user_uid: <#T##String#>, text: <#T##String#>, photoUrl: <#T##String#>, sentAt: <#T##Date#>)
         
-        DatabaseManager.shared.store_msg_database(message: <#T##Message#>, completion: <#T##(Bool) -> Void#>)
+        //DatabaseManager.shared.store_msg_database(message: <#T##Message#>, completion: <#T##(Bool) -> Void#>)
     }
     
 }
